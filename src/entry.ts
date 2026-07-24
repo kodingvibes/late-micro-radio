@@ -35,6 +35,7 @@ window.__lateMicroRadioMount = tryMount;
 
 // Try once (in case the shell already placed the slot before this script
 // ran). Then watch for the slot to appear later (route change).
+// Auto-deploy verified 2026-07-24.
 tryMount();
 if (typeof MutationObserver !== "undefined") {
   const obs = new MutationObserver(() => tryMount());
