@@ -55,7 +55,15 @@ export function IcecastPage() {
   };
 
   return (
-    <div className={`min-h-screen ${isLight ? "bg-slate-50 text-slate-900" : "bg-slate-950 text-slate-100"}`}>
+    <div className={`relative min-h-screen ${isLight ? "text-slate-900" : "text-slate-100"}`}>
+      {/* ponytail: the page surface picks up the active accent
+       * from the shell's --accent-glow-a / -b vars via the
+       * body. Removing the opaque slate-50/950 wrapper here
+       * lets the body-level halo bleed through. */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-[420px] -z-10 bg-accent-glow"
+        aria-hidden="true"
+      />
       <div className="py-6 sm:py-10 max-w-5xl mx-auto px-4 sm:px-6 pb-24">
         <p className={`text-sm mb-6 ${isLight ? "text-slate-500" : "text-slate-400"}`}>
           {`${totalListeners} oyentes · ${mounts.length} emisoras`}
