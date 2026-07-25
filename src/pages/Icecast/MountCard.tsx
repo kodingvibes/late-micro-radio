@@ -14,7 +14,7 @@ function labelFor(name: string) {
   return {
     emoji: s?.emoji ?? "\u266A",
     name: s?.category ?? name,
-    color: s?.accent ?? "text-indigo-400",
+    color: s?.accent ?? "text-accent",
   };
 }
 
@@ -27,7 +27,7 @@ export function MountCard({ mount, isCurrent, isPlaying, onPlay }: MountCardProp
       className={[
         "group text-left p-5 rounded-2xl border transition-all",
         isCurrent
-          ? "bg-slate-900 border-indigo-500 shadow-card ring-1 ring-indigo-500/50"
+          ? "bg-slate-900 border-accent shadow-card ring-1 ring-accent/50"
           : "bg-slate-900/60 border-slate-800 hover:border-slate-700",
       ].join(" ")}
     >

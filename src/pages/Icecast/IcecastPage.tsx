@@ -4,6 +4,7 @@ import { MountCard } from "./MountCard";
 import type { MountView } from "./useIcecastStatus";
 import type { RadioState, StreamInfo, TrackMeta } from "@/global";
 import { STREAMS } from "@/data/streams";
+import { useTheme } from "@/providers/theme-provider";
 
 function radioState(): RadioState {
   return window.RadioEngine.getState();
@@ -14,6 +15,8 @@ function radioSubscribe(fn: () => void): () => void {
 
 export function IcecastPage() {
   const { mounts, totalListeners, isLoading } = useIcecastStatus();
+  const { mode } = useTheme();
+  const isLight = mode === "light";
   const radio = useSyncExternalStore(radioSubscribe, radioState, radioState);
 
   // Push track metadata into the radio engine. We compare against the
@@ -52,9 +55,9 @@ export function IcecastPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
+    <div className={`min-h-screen ${isLight ? "bg-slate-50 text-slate-900" : "bg-slate-950 text-slate-100"}`}>
       <div className="py-6 sm:py-10 max-w-5xl mx-auto px-4 sm:px-6 pb-24">
-        <p className="text-sm text-slate-400 mb-6">
+        <p className={`text-sm mb-6 ${isLight ? "text-slate-500" : "text-slate-400"}`}>
           {`${totalListeners} oyentes · ${mounts.length} emisoras`}
         </p>
 

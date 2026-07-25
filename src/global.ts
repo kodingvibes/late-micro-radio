@@ -26,6 +26,22 @@ export type RadioState = {
   muted: boolean;
 };
 
+export type ThemeMode = "light" | "dark";
+export type AccentName =
+  | "indigo"
+  | "violet"
+  | "emerald"
+  | "rose"
+  | "amber"
+  | "cyan";
+export interface LateTheme {
+  mode: ThemeMode;
+  accent: AccentName;
+  accentPrimary: string;
+  accentSoft: string;
+  accentRing: string;
+}
+
 export interface RadioEngine {
   version: string;
   streams: readonly StreamInfo[];
@@ -48,5 +64,6 @@ export interface RadioEngine {
 declare global {
   interface Window {
     RadioEngine: RadioEngine;
+    LateTheme?: LateTheme;
   }
 }

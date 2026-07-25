@@ -1,5 +1,6 @@
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { IcecastPage } from "./IcecastPage";
+import { ThemeProvider } from "@/providers/theme-provider";
 
 // Mount helper: the shell renders <div id="micro-radio-root" /> on /icecast
 // and we drop our own React tree into it. Re-mounts on every route change
@@ -12,6 +13,14 @@ export function mountIcecastPage(root: HTMLElement) {
     return;
   }
   const reactRoot = ReactDOMClient.createRoot(root);
-  reactRoot.render(<IcecastPage />);
+  // ponytail: wrap the radio tree in a ThemeProvider so the
+  // page can mirror the shell's light/dark mode + accent. The
+  // provider reads window.LateTheme (set by the shell) and
+  // dispatches `late:theme-change` updates.
+  reactRoot.render(
+    <ThemeProvider>
+      <IcecastPage />
+    </ThemeProvider>,
+  );
   return () => reactRoot.unmount();
 }
