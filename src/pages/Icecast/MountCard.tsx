@@ -27,8 +27,8 @@ export function MountCard({ mount, isCurrent, isPlaying, onPlay }: MountCardProp
       className={[
         "group text-left p-5 rounded-2xl border transition-all",
         isCurrent
-          ? "bg-slate-900 border-accent shadow-card ring-1 ring-accent/50"
-          : "bg-slate-900/60 border-slate-800 hover:border-slate-700",
+          ? "bg-slate-900/80 border-accent shadow-card ring-1 ring-accent/50 backdrop-blur-sm"
+          : "bg-slate-900/40 border-slate-700/60 hover:border-slate-500/60 hover:bg-slate-900/60 backdrop-blur-sm",
       ].join(" ")}
     >
       <div className="flex items-start justify-between mb-2">
