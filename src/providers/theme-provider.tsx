@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import type { LateTheme } from "@/global";
+import type { LateTheme } from "@late/theme";
+import { DEFAULT_THEME } from "@late/theme";
 
 interface ThemeContextValue {
   mode: LateTheme["mode"];
@@ -8,18 +9,6 @@ interface ThemeContextValue {
 }
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
-
-const DEFAULT_THEME: LateTheme = {
-  mode: "dark",
-  accent: "indigo",
-  accentPrimary: "#6366f1",
-  accentSoft: "#818cf8",
-  accentRing: "#a5b4fc",
-  accentGlowA: "rgba(99,102,241,0.70)",
-  accentGlowB: "rgba(99,102,241,0.45)",
-  accentGlowALight: "rgba(79,70,229,0.60)",
-  accentGlowBLight: "rgba(99,102,241,0.35)",
-};
 
 function snapshotFromWindow(): LateTheme {
   if (typeof window === "undefined") return DEFAULT_THEME;
@@ -34,9 +23,6 @@ function applyToDocument(t: LateTheme) {
   root.style.setProperty("--accent-primary", t.accentPrimary);
   root.style.setProperty("--accent-soft", t.accentSoft);
   root.style.setProperty("--accent-ring", t.accentRing);
-  // ponytail: pre-baked rgba tones from the shell so the
-  // page-level halo tracks the accent. The shell sets these
-  // in :root when it dispatches `late:theme-change`.
   root.style.setProperty("--accent-glow-a", t.accentGlowA);
   root.style.setProperty("--accent-glow-b", t.accentGlowB);
   root.style.setProperty("--accent-glow-a-light", t.accentGlowALight);

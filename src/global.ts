@@ -26,25 +26,8 @@ export type RadioState = {
   muted: boolean;
 };
 
-export type ThemeMode = "light" | "dark";
-export type AccentName =
-  | "indigo"
-  | "violet"
-  | "emerald"
-  | "rose"
-  | "amber"
-  | "cyan";
-export interface LateTheme {
-  mode: ThemeMode;
-  accent: AccentName;
-  accentPrimary: string;
-  accentSoft: string;
-  accentRing: string;
-  accentGlowA: string;
-  accentGlowB: string;
-  accentGlowALight: string;
-  accentGlowBLight: string;
-}
+import type { ThemeMode, AccentName, LateTheme } from "@late/theme";
+export type { ThemeMode, AccentName };
 
 export interface RadioEngine {
   version: string;
@@ -56,10 +39,6 @@ export interface RadioEngine {
   stop(): void;
   setVolume(v: number): void;
   toggleMute(): void;
-  // ponytail: Icecast metadata update from the page (e.g. SomaFM title
-  // changes while the same stream keeps playing). The engine's own audio
-  // element emits metadata events, but those only fire on load. For
-  // mid-play metadata updates, the page calls setTrack().
   setTrack(t: TrackMeta | null): void;
   getAudioElement(): HTMLAudioElement | null;
   getAnalyser(): AnalyserNode | null;
