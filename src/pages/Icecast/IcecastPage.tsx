@@ -66,13 +66,12 @@ export function IcecastPage() {
         }`}
         aria-hidden="true"
       />
-      {/* ponytail: WhatsApp-style doodle wallpaper of musical motifs
-       * (note heads, beamed notes, rests, treble-clef, headphones, vinyl).
-       * Six SVG motifs repeat in a 240x240 tile so the eye reads them
-       * as texture, not content. Stacked under glow + page content via
-       * -z-10. SVG comes from .bg-musical-doodles in index.css. */}
+      {/* ponytail: WhatsApp-style doodle wallpaper of musical motifs.
+       * .bg-doodles sets positioning, theme-switching color and
+       * opacity; .bg-musical-doodles in this micro's index.css adds
+       * the six motifs. Stacked under glow + page content via -z-10. */}
       <div
-        className="bg-musical-doodles"
+        className="bg-doodles bg-musical-doodles"
         aria-hidden="true"
       />
       <div className="py-6 sm:py-10 max-w-5xl mx-auto px-4 sm:px-6 pb-24">

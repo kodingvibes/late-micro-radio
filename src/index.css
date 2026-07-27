@@ -3,27 +3,16 @@
 @import "@late/theme/animations.css";
 
 /* ponytail: WhatsApp-style doodle wallpaper for the radio page.
- * ~30 simple vector motifs (note heads, beamed notes, eighth rests,
- * quarter notes, treble shape, headphones, vinyl) scattered as
- * background-image SVGs. Low opacity (~12%) so the eye reads them
- * as texture, not decoration. Each motif is one SVG path; the
- * browser tiles them across the page. */
+ * Inherits positioning, opacity, color and theme-switching from
+ * .bg-doodles in tokens.css; this file only adds the six musical
+ * motifs. Repeats in a 240x240 tile so the eye reads them as
+ * texture, not content. URL-encoded SVGs drawn with simple SVG
+ * paths (note head, stem, beam) \u2014 no asset request. */
 .bg-musical-doodles {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.12;
-  color: var(--accent-ring, #a5b4fc);
-  background-repeat: repeat;
-  background-size: 240px 240px;
-  /* six motif tiles interleaved; each is a small musical doodle
-   * drawn with simple SVG paths (note head, stem, beam). URL-encoded
-   * \u266A / \u266B are ignored \u2014 these are real shapes. */
   background-image:
     /* quarter note (head + stem + flag) */
     url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><g fill='currentColor'><ellipse cx='22' cy='46' rx='7' ry='5' transform='rotate(-22 22 46)'/><rect x='28' y='14' width='2.5' height='32'/><path d='M30 14 q12 4 16 16 q-3 -2 -8 -2 q-5 0 -8 4z'/></g></svg>"),
-    /* eighth rest (\u00A7-style wiggly line) */
+    /* eighth rest (wiggly line) */
     url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><g fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round'><path d='M34 16 q-10 6 -10 14 q0 6 8 8 q-6 4 -6 10 q0 6 8 8'/><circle cx='34' cy='50' r='2.5'/></g></svg>"),
     /* treble-clef-ish loopy line */
     url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><g fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round'><path d='M30 8 q10 4 8 14 q-2 8 -10 12 q-8 4 -10 -4'/><path d='M30 8 q-2 22 6 36 q4 6 0 12 q-4 4 -8 0'/></g></svg>"),
@@ -40,9 +29,6 @@
     40px 140px,
     120px 180px,
     200px 100px;
-}
-:root.theme-light .bg-musical-doodles {
-  opacity: 0.20;
 }
 
 /* ponytail: legacy single-glyph notes \u2014 kept as a heavier,
