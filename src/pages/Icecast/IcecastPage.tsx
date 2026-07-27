@@ -66,6 +66,14 @@ export function IcecastPage() {
         }`}
         aria-hidden="true"
       />
+      {/* ponytail: six musical glyphs (\u266A / \u266B) scattered across
+       * the page as a low-opacity decorative layer. -z-10 stacks
+       * under the glow + page content. SVG comes from .bg-musical-notes
+       * in index.css; no asset request. */}
+      <div
+        className="bg-musical-notes"
+        aria-hidden="true"
+      />
       <div className="py-6 sm:py-10 max-w-5xl mx-auto px-4 sm:px-6 pb-24">
         <p className={`text-sm mb-6 ${isLight ? "text-slate-500" : "text-slate-400"}`}>
           {`${totalListeners} oyentes · ${mounts.length} emisoras`}

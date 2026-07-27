@@ -1,3 +1,43 @@
 @import "tailwindcss";
 @import "@late/theme/tokens.css";
 @import "@late/theme/animations.css";
+
+/* ponytail: musical-note glyphs scattered across the radio page
+ * background. Six positions, mixed sizes; SVG data-URIs so no
+ * asset request. The accent is tamed (opacity ~0.18) so the
+ * notes read as decoration, not wallpaper. Color uses the live
+ * --accent-ring for theme consistency. */
+.bg-musical-notes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-repeat: no-repeat;
+  opacity: 0.18;
+  color: var(--accent-ring, #a5b4fc);
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><text x='0' y='20' font-size='24' font-family='serif'>%E2%99%AA</text></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><text x='0' y='20' font-size='18' font-family='serif'>%E2%99%AB</text></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><text x='0' y='20' font-size='28' font-family='serif'>%E2%99%AA</text></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><text x='0' y='20' font-size='22' font-family='serif'>%E2%99%AB</text></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><text x='0' y='20' font-size='14' font-family='serif'>%E2%99%AA</text></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><text x='0' y='20' font-size='20' font-family='serif'>%E2%99%AB</text></svg>");
+  background-size:
+    28px 28px,
+    18px 18px,
+    40px 40px,
+    32px 32px,
+    16px 16px,
+    24px 24px;
+  background-position:
+    12% 18%,
+    78% 12%,
+    88% 72%,
+    8% 82%,
+    50% 8%,
+    38% 58%;
+}
+.bg-musical-notes-sm {
+  /* lighter version for inner containers (compact areas) */
+  opacity: 0.10;
+}
