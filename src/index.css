@@ -3,9 +3,9 @@
 @import "@late/theme/animations.css";
 
 /* ponytail: musical-note glyphs scattered across the radio page
- * background. Six positions, mixed sizes; SVG data-URIs so no
- * asset request. The accent is tamed (opacity ~0.18) so the
- * notes read as decoration, not wallpaper. Color uses the live
+ * background. ~10 positions (denser), mixed sizes; SVG data-URIs
+ * so no asset request. opacity .32 in dark, .22 in light — strong
+ * enough to read over the slate canvas. Color uses the live
  * --accent-ring for theme consistency. */
 .bg-musical-notes {
   position: absolute;
@@ -13,31 +13,42 @@
   pointer-events: none;
   z-index: 0;
   background-repeat: no-repeat;
-  opacity: 0.18;
+  opacity: 0.32;
   color: var(--accent-ring, #a5b4fc);
   background-image:
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><text x='0' y='20' font-size='24' font-family='serif'>%E2%99%AA</text></svg>"),
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><text x='0' y='20' font-size='18' font-family='serif'>%E2%99%AB</text></svg>"),
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><text x='0' y='20' font-size='28' font-family='serif'>%E2%99%AA</text></svg>"),
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><text x='0' y='20' font-size='22' font-family='serif'>%E2%99%AB</text></svg>"),
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><text x='0' y='20' font-size='14' font-family='serif'>%E2%99%AA</text></svg>"),
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><text x='0' y='20' font-size='20' font-family='serif'>%E2%99%AB</text></svg>");
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><text x='0' y='22' font-size='28' font-family='serif'>%E2%99%AA</text></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><text x='0' y='22' font-size='20' font-family='serif'>%E2%99%AB</text></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><text x='0' y='22' font-size='36' font-family='serif'>%E2%99%AA</text></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><text x='0' y='22' font-size='24' font-family='serif'>%E2%99%AB</text></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><text x='0' y='22' font-size='16' font-family='serif'>%E2%99%AA</text></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><text x='0' y='22' font-size='22' font-family='serif'>%E2%99%AB</text></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><text x='0' y='22' font-size='30' font-family='serif'>%E2%99%AA</text></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><text x='0' y='22' font-size='18' font-family='serif'>%E2%99%AB</text></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><text x='0' y='22' font-size='26' font-family='serif'>%E2%99%AA</text></svg>"),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor'><text x='0' y='22' font-size='14' font-family='serif'>%E2%99%AB</text></svg>");
   background-size:
-    28px 28px,
-    18px 18px,
-    40px 40px,
+    36px 36px,
+    24px 24px,
+    48px 48px,
     32px 32px,
-    16px 16px,
-    24px 24px;
+    20px 20px,
+    28px 28px,
+    44px 44px,
+    22px 22px,
+    34px 34px,
+    18px 18px;
   background-position:
-    12% 18%,
-    78% 12%,
-    88% 72%,
-    8% 82%,
-    50% 8%,
-    38% 58%;
+    8% 12%,
+    72% 8%,
+    92% 64%,
+    4% 78%,
+    46% 4%,
+    34% 52%,
+    64% 88%,
+    18% 38%,
+    84% 30%,
+    52% 72%;
 }
-.bg-musical-notes-sm {
-  /* lighter version for inner containers (compact areas) */
-  opacity: 0.10;
+:root.theme-light .bg-musical-notes {
+  opacity: 0.22;
 }
