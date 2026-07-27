@@ -66,12 +66,13 @@ export function IcecastPage() {
         }`}
         aria-hidden="true"
       />
-      {/* ponytail: six musical glyphs (\u266A / \u266B) scattered across
-       * the page as a low-opacity decorative layer. -z-10 stacks
-       * under the glow + page content. SVG comes from .bg-musical-notes
-       * in index.css; no asset request. */}
+      {/* ponytail: WhatsApp-style doodle wallpaper of musical motifs
+       * (note heads, beamed notes, rests, treble-clef, headphones, vinyl).
+       * Six SVG motifs repeat in a 240x240 tile so the eye reads them
+       * as texture, not content. Stacked under glow + page content via
+       * -z-10. SVG comes from .bg-musical-doodles in index.css. */}
       <div
-        className="bg-musical-notes"
+        className="bg-musical-doodles"
         aria-hidden="true"
       />
       <div className="py-6 sm:py-10 max-w-5xl mx-auto px-4 sm:px-6 pb-24">
