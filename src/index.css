@@ -3,32 +3,18 @@
 @import "@late/theme/animations.css";
 
 /* ponytail: WhatsApp-style doodle wallpaper for the radio page.
- * Inherits positioning, opacity, color and theme-switching from
- * .bg-doodles in tokens.css; this file only adds the six musical
- * motifs. Repeats in a 240x240 tile so the eye reads them as
- * texture, not content. URL-encoded SVGs drawn with simple SVG
- * paths (note head, stem, beam) \u2014 no asset request. */
+ * One inline SVG sprite (240x160) holding six musical motifs in
+ * fixed positions: quarter note, eighth rest, treble line,
+ * headphones, vinyl, beamed notes. Each motif is wrapped in a
+ * <g transform="translate(x y)"> so its native 64x64 coords are
+ * reused. The sprite is one background-image repeated as a
+ * 240x160 tile, so motifs never overlap. Inherits positioning /
+ * currentColor / repeat from .bg-doodles in tokens.css. */
 .bg-musical-doodles {
   background-image:
-    /* quarter note (head + stem + flag) */
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><g fill='currentColor'><ellipse cx='22' cy='46' rx='7' ry='5' transform='rotate(-22 22 46)'/><rect x='28' y='14' width='2.5' height='32'/><path d='M30 14 q12 4 16 16 q-3 -2 -8 -2 q-5 0 -8 4z'/></g></svg>"),
-    /* eighth rest (wiggly line) */
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><g fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round'><path d='M34 16 q-10 6 -10 14 q0 6 8 8 q-6 4 -6 10 q0 6 8 8'/><circle cx='34' cy='50' r='2.5'/></g></svg>"),
-    /* treble-clef-ish loopy line */
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><g fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round'><path d='M30 8 q10 4 8 14 q-2 8 -10 12 q-8 4 -10 -4'/><path d='M30 8 q-2 22 6 36 q4 6 0 12 q-4 4 -8 0'/></g></svg>"),
-    /* headphones */
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><g fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round'><path d='M14 38 v-6 a18 18 0 0 1 36 0 v6'/><rect x='10' y='38' width='10' height='16' rx='3' fill='currentColor'/><rect x='44' y='38' width='10' height='16' rx='3' fill='currentColor'/></g></svg>"),
-    /* vinyl disc */
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><g fill='none' stroke='currentColor' stroke-width='3'><circle cx='32' cy='32' r='22'/><circle cx='32' cy='32' r='14'/><circle cx='32' cy='32' r='4' fill='currentColor'/></g></svg>"),
-    /* beamed eighth notes */
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><g fill='currentColor'><ellipse cx='16' cy='46' rx='6' ry='4.5' transform='rotate(-22 16 46)'/><ellipse cx='44' cy='46' rx='6' ry='4.5' transform='rotate(-22 44 46)'/><rect x='21' y='14' width='2.5' height='32'/><rect x='49' y='14' width='2.5' height='32'/><path d='M23.5 14 H 51.5 V 18 H 23.5 z'/></g></svg>");
-  background-position:
-    0 0,
-    80px 60px,
-    160px 20px,
-    40px 140px,
-    120px 180px,
-    200px 100px;
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 160'><g fill='currentColor'><g transform='translate(4 4)'><ellipse cx='22' cy='46' rx='7' ry='5' transform='rotate(-22 22 46)'/><rect x='28' y='14' width='2.5' height='32'/><path d='M30 14 q12 4 16 16 q-3 -2 -8 -2 q-5 0 -8 4z'/></g><g transform='translate(168 4)'><ellipse cx='16' cy='46' rx='6' ry='4.5' transform='rotate(-22 16 46)'/><ellipse cx='44' cy='46' rx='6' ry='4.5' transform='rotate(-22 44 46)'/><rect x='21' y='14' width='2.5' height='32'/><rect x='49' y='14' width='2.5' height='32'/><path d='M23.5 14 H 51.5 V 18 H 23.5 z'/></g></g><g fill='none' stroke='currentColor' stroke-width='3.5' stroke-linecap='round'><g transform='translate(84 4)'><path d='M34 14 q-10 6 -10 14 q0 6 8 8 q-6 4 -6 10 q0 6 8 8'/><circle cx='34' cy='50' r='2'/></g><g transform='translate(168 84)'><path d='M30 8 q10 4 8 14 q-2 8 -10 12 q-8 4 -10 -4'/><path d='M30 8 q-2 22 6 36 q4 6 0 12 q-4 4 -8 0'/></g></g><g fill='currentColor'><g transform='translate(4 84)'><path d='M14 38 v-6 a18 18 0 0 1 36 0 v6'/><rect x='10' y='38' width='10' height='16' rx='3'/><rect x='44' y='38' width='10' height='16' rx='3'/></g></g><g fill='none' stroke='currentColor' stroke-width='3.5'><g transform='translate(84 84)'><circle cx='32' cy='32' r='22'/><circle cx='32' cy='32' r='4' fill='currentColor'/></g></g></svg>");
+  background-size: 240px 160px;
+  background-repeat: repeat;
 }
 
 /* ponytail: legacy single-glyph notes \u2014 kept as a heavier,
