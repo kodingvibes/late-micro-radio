@@ -25,10 +25,10 @@ export function MountCard({ mount, isCurrent, isPlaying, onPlay }: MountCardProp
     <button
       onClick={() => onPlay(mount)}
       className={[
-        "group text-left p-5 rounded-2xl transition-all",
+        "group text-left p-5 rounded-2xl transition-all shadow-card backdrop-blur-sm",
         isCurrent
-          ? "bg-surface-3  shadow-card  backdrop-blur-sm"
-          : "bg-surface-2  hover: hover:bg-surface-3 backdrop-blur-sm",
+          ? "bg-surface-3 "
+          : "bg-surface-2 hover:bg-surface-3",
       ].join(" ")}
     >
       <div className="flex items-start justify-between mb-2">
