@@ -55,13 +55,15 @@ export function IcecastPage() {
   };
 
   return (
-    <div className={`relative min-h-screen ${isLight ? "text-slate-900" : "text-slate-100"}`}>
-      {/* ponytail: the page surface picks up the active accent
-       * from the shell's --accent-glow-a / -b vars via the
-       * body. Removing the opaque slate-50/950 wrapper here
-       * lets the body-level halo bleed through. */}
+    <div className={`relative min-h-screen bg-mf-surface ${isLight ? "text-slate-900" : "text-slate-100"}`}>
+      {/* ponytail: subtle accent halo behind the page title. The
+       * bg-mf-surface base is owned by the shell; this glow just
+       * adds a touch of accent at the top so the page reads
+       * distinct. opacity-50 keeps it tame in dark mode. */}
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-[420px] -z-10 bg-accent-glow"
+        className={`pointer-events-none absolute inset-x-0 top-0 h-[420px] -z-10 ${
+          isLight ? "bg-accent-glow" : "bg-accent-glow opacity-50"
+        }`}
         aria-hidden="true"
       />
       <div className="py-6 sm:py-10 max-w-5xl mx-auto px-4 sm:px-6 pb-24">
@@ -72,7 +74,7 @@ export function IcecastPage() {
         {isLoading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="h-28 rounded-2xl bg-slate-800/40 animate-pulse" />
+              <div key={i} className="h-28 rounded-2xl bg-surface-2 animate-pulse" />
             ))}
           </div>
         ) : (
